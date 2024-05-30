@@ -67,5 +67,22 @@ lvim.plugins = {
       })
     end,
   },
-
+  {
+    'sQVe/sort.nvim',
+  
+    -- Optional setup for overriding defaults.
+    config = function()
+      require("sort").setup({
+        -- Input configuration here.
+        -- Refer to the configuration section below for options.
+      })
+    end
+  },
+  {
+    "rbong/vim-flog",
+    lazy = true,
+    cmd = { "Flog", "Flogsplit", "Floggit" },
+    dependencies = {
+      "tpope/vim-fugitive",
+  },
 }
