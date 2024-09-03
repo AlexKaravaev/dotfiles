@@ -1,0 +1,19 @@
+[user]
+    name = Alex Karavaev
+    email = alexkaravev@gmail.com
+[core]
+    editor = lvim
+[alias]
+    st = status
+    co = checkout
+    br = branch
+    ci = commit
+    df = diff
+    lg = log --oneline --graph --decorate --all
+    last = log -1 HEAD
+    aa = add --all
+    amend = commit --amend --no-edit
+    unstage = reset HEAD --
+    undo = reset --soft HEAD^
+    uncommit = reset --soft HEAD^
+    pom = push origin master
