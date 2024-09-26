@@ -1,6 +1,4 @@
-# Neorg manual installation steps
+# 💤 LazyVim
 
-On ubuntu
-```
-sudo apt-get install lua5.1 liblua5.1-dev
-```
+A starter template for [LazyVim](https://github.com/LazyVim/LazyVim).
+Refer to the [documentation](https://lazyvim.github.io/installation) to get started.
