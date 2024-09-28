@@ -93,13 +93,15 @@ return {
       "yetone/avante.nvim",
       event = "VeryLazy",
       lazy = false,
+      version = false, -- set this if you want to always pull the latest change
       opts = {
-        provider = "openai",
+        provider="openai",
       },
-      -- if you want to download pre-built binary, then pass source=false. Make sure to follow instruction above.
-      -- Also note that downloading prebuilt binary is a lot faster comparing to compiling from source.
-      build = ":AvanteBuild",
+      -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
+      build = "make",
+      -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
       dependencies = {
+        "nvim-treesitter/nvim-treesitter",
         "stevearc/dressing.nvim",
         "nvim-lua/plenary.nvim",
         "MunifTanjim/nui.nvim",
@@ -124,7 +126,7 @@ return {
           },
         },
         {
-          -- Make sure to setup it properly if you have lazy=true
+          -- Make sure to set this up properly if you have lazy=true
           "MeanderingProgrammer/render-markdown.nvim",
           opts = {
             file_types = { "markdown", "Avante" },
