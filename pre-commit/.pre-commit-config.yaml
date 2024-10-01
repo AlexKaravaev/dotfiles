@@ -1,0 +1,46 @@
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v4.4.0
+  hooks:
+    - id: check-added-large-files # prevents giant files from being committed.
+    - id: check-case-conflict # checks for files that would conflict in case-insensitive filesystems.
+    - id: check-merge-conflict # checks for files that contain merge conflict strings.
+    - id: detect-private-key # detects the presence of private keys.
+    - id: end-of-file-fixer # ensures that a file is either empty, or ends with one newline.
+    - id: fix-byte-order-marker # removes utf-8 byte order marker.
+    - id: mixed-line-ending # replaces or checks mixed line ending.
+    - id: trailing-whitespace # trims trailing whitespace.
+
+# C/C++ formatter, uses the project's .clang-format file
+- repo: https://github.com/pre-commit/mirrors-clang-format
+  rev: v15.0.7
+  hooks:
+    - id: clang-format
+      "types_or": [proto]
+
+# Uses https://github.com/prettier/prettier under to hood
+- repo: https://github.com/pre-commit/mirrors-prettier
+  rev: v2.4.1
+  hooks:
+    - id: prettier
+      files: \.(js|ts|jsx|tsx|css|less|html|json|markdown|md|yaml|yml)$
+
+# Check GH actions workflow files don't have errors
+- repo: https://github.com/sirosen/check-jsonschema
+  rev: 0.22.0
+  hooks:
+    - id: check-github-actions
+    - id: check-github-workflows
+
+# Some Rust hooks for formatting
+- repo: https://github.com/doublify/pre-commit-rust
+  rev: v1.0
+  hooks:
+    - id: fmt # see https://github.com/fouge/git-hooks below for the nightly alternative
+    - id: cargo-check
+      args: ["--target", "aarch64-unknown-linux-gnu"]
+
+# repo to be replaced with a worldcoin one?
+- repo: https://github.com/fouge/git-hooks
+  rev: main
+  hooks:
+    - id: rust-cargo-fmt # cargo +nightly fmt
