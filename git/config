@@ -17,3 +17,4 @@
     undo = reset --soft HEAD^
     uncommit = reset --soft HEAD^
     pom = push origin master
+    fixup = "!f() { git commit --fixup \"$(git rev-parse --short HEAD)\"; }; f"
